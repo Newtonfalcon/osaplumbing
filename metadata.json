@@ -1,0 +1,6 @@
+{
+  "name": "OsaPlumbing",
+  "description": "A premium, highly interactive commercial landing page for OsaPlumbing, featuring modern designs, smooth animations, pricing selectors, FAQ, contact systems, and live-simulated WhatsApp chat.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
