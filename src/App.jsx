@@ -37,6 +37,7 @@ export default function App() {
     const finishLoading = () => {
       if (isMounted) {
         setIsLoading(false);
+        document.body.style.overflow = "";
       }
     };
 
