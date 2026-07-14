@@ -27,15 +27,19 @@ export default function Navbar({ onOpenBooking }) {
   const handleScrollTo = (e, href) => {
     e.preventDefault();
     setIsOpen(false);
-    const element = document.querySelector(href);
-    if (element) {
-      const offset = 80; // height of navbar
-      const elementPosition = element.getBoundingClientRect().top + window.scrollY;
-      window.scrollTo({
-        top: elementPosition - offset,
-        behavior: "smooth",
-      });
-    }
+    
+    // Wait for the drawer to close before scrolling
+    setTimeout(() => {
+      const element = document.querySelector(href);
+      if (element) {
+        const offset = 80; // height of navbar
+        const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+        window.scrollTo({
+          top: elementPosition - offset,
+          behavior: "smooth",
+        });
+      }
+    }, 250);
   };
 
   return (
