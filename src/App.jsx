@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { X, CheckCircle, Calendar, Phone } from "lucide-react";
 import Navbar from "./components/Navbar";
@@ -29,6 +29,52 @@ export default function App() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [bookingConfirmed, setBookingConfirmed] = useState(false);
   const [confirmationDetails, setConfirmationDetails] = useState({ name: "", service: "" });
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    let isMounted = true;
+
+    const finishLoading = () => {
+      if (isMounted) {
+        setIsLoading(false);
+      }
+    };
+
+    const waitForAssets = async () => {
+      const fontPromise = document.fonts?.ready ? document.fonts.ready : Promise.resolve();
+      const images = Array.from(document.images);
+
+      const imagePromises = images.map((img) => {
+        if (img.complete && img.naturalWidth > 0) {
+          return Promise.resolve();
+        }
+
+        return new Promise((resolve) => {
+          img.addEventListener("load", resolve, { once: true });
+          img.addEventListener("error", resolve, { once: true });
+        });
+      });
+
+      await Promise.allSettled(imagePromises);
+      await fontPromise;
+      finishLoading();
+    };
+
+    document.body.style.overflow = "hidden";
+
+    if (document.readyState === "complete") {
+      void waitForAssets();
+    } else {
+      window.addEventListener("load", finishLoading, { once: true });
+      void waitForAssets();
+    }
+
+    return () => {
+      isMounted = false;
+      document.body.style.overflow = "";
+      window.removeEventListener("load", finishLoading);
+    };
+  }, []);
 
   const handleOpenBooking = (preselectedService) => {
     if (preselectedService) {
@@ -70,6 +116,27 @@ export default function App() {
       setFormData({ name: "", phone: "", notes: "" });
     }, 800);
   };
+
+  if (isLoading) {
+    return (
+      <div className="fixed inset-0 z-[100] flex min-h-screen items-center justify-center bg-slate-950/95 px-6 text-center text-white backdrop-blur-sm">
+        <div className="flex max-w-sm flex-col items-center gap-4">
+          <div className="relative flex h-16 w-16 items-center justify-center">
+            <div className="absolute inset-0 rounded-full border-4 border-white/20" />
+            <div className="absolute inset-0 rounded-full border-4 border-transparent border-t-brand-blue animate-spin" />
+            <div className="h-6 w-6 rounded-full bg-brand-blue/80" />
+          </div>
+
+          <div className="space-y-2">
+            <p className="text-lg font-semibold tracking-[0.2em] text-white uppercase">Loading OsaPlumbing</p>
+            <p className="text-sm leading-6 text-slate-300">
+              We are preparing the site and downloading the latest visuals so everything appears instantly.
+            </p>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="relative min-h-screen bg-slate-50 font-sans antialiased text-[#1F2937]">
