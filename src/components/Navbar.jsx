@@ -113,7 +113,7 @@ export default function Navbar({ onOpenBooking }) {
           <div className="flex items-center gap-3 lg:hidden">
             <a
               id="mobile-phone-urgent"
-              href="tel:+18005550199"
+              href="tel:+2349066172210"
               className="p-2 h-9 w-9 rounded-lg bg-red-50 text-red-600 flex items-center justify-center shadow-inner"
             >
               <Phone className="w-4 h-4" />

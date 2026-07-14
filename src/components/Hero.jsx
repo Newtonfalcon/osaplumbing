@@ -75,7 +75,7 @@ export default function Hero({ onOpenBooking }) {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-base sm:text-lg text-slate-600 max-w-2xl leading-relaxed"
             >
-              OsaPlumbing delivers master-grade mechanical installations and rapid 24/7 emergency response. We respect your architecture, stand behind our warranties, and price transparently.
+              Osasere plumbing and construction delivers master-grade mechanical installations and rapid 24/7 emergency response. We respect your architecture, stand behind our warranties, and price transparently.
             </motion.p>
 
             {/* Benefit Highlights */}
