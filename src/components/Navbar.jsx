@@ -57,7 +57,7 @@ export default function Navbar({ onOpenBooking }) {
             className="flex items-center gap-2.5 group cursor-pointer"
           >
             <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-lg  flex items-center justify-center text-white transition-all duration-300 group-hover:bg-brand-blue/90 group-hover:scale-105">
-              <img src="src/assets/logo.png" alt="Osa Plumbing Logo" className="w-full h-full object-cover" />
+              <img src="/logo.png" alt="Osa Plumbing Logo" className="w-full h-full object-cover" />
             </div>
             <div>
               <span className="font-display text-xl font-extrabold tracking-tight text-slate-800 group-hover:text-brand-blue transition-colors">
