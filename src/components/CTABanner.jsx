@@ -13,7 +13,7 @@ export default function CTABanner({ onOpenBooking }) {
             <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-white/10 rounded-full text-[10px] font-bold tracking-wider font-mono uppercase">
               <Sparkles className="w-3 h-3 text-cyan-300 fill-cyan-300" />
               <span>Crews Dispatched Near You</span>
-            </div>
+            </div> 
             
             <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight leading-tight">
               Facing a plumbing emergency or planning a high-end project?
@@ -33,11 +33,11 @@ export default function CTABanner({ onOpenBooking }) {
             </button>
             <a
               id="cta-call-button"
-              href="tel:+18005550199"
+              href="tel:+234 906 617 2210"
               className="px-6 py-4 bg-white text-slate-900 text-xs font-bold uppercase tracking-wider font-mono rounded-full hover:bg-slate-50 transition-all shadow-lg shadow-white/5 text-center flex items-center justify-center gap-2"
             >
               <Phone className="w-4 h-4 fill-slate-900 animate-pulse" />
-              <span>Dial Call Center (800) 555-0199</span>
+              <span>Dial Call Center (234) 906 617 2210</span>
             </a>
           </div>
 

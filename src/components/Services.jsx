@@ -242,7 +242,7 @@ export default function Services({ onOpenBooking }) {
                 <div className="p-6 bg-slate-50 border-t border-slate-100 flex flex-col sm:flex-row gap-3 justify-between items-center">
                   <span className="text-xs text-slate-400 font-mono flex items-center gap-1.5">
                     <Phone className="w-3.5 h-3.5 text-red-500 animate-pulse" />
-                    <span>Or dial +1 (800) 555-0199 for instant response</span>
+                    <span>Or dial +234 906 617 2210 for instant response</span>
                   </span>
                   <div className="flex gap-2 w-full sm:w-auto">
                     <button

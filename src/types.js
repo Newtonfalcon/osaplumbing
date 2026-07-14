@@ -103,7 +103,7 @@ export const PROJECTS = [
 export const STATS = [
   {
     id: "stat-1",
-    value: 12500,
+    value: 7000,
     label: "Inquiries Handled",
     suffix: "+",
     iconName: "CheckCircle",
@@ -127,7 +127,7 @@ export const STATS = [
   },
   {
     id: "stat-4",
-    value: 15,
+    value: 5,
     label: "Years Service Guarantee",
     suffix: " Yrs",
     iconName: "ShieldCheck",
@@ -138,8 +138,8 @@ export const STATS = [
 export const TESTIMONIALS = [
   {
     id: "test-1",
-    name: "Marcus Vance",
-    role: "Senior Project Manager, Apex Builders",
+    name: "Tony Erabor",
+    role: "Business man",
     rating: 5,
     comment: "OsaPlumbing is our absolute go-to for commercial projects. Their technical expertise, precise billing, and adherence to aggressive timelines make them the top 1% of plumbing sub-contractors. They don't just fix pipes; they engineer systems.",
     avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop",
@@ -147,7 +147,7 @@ export const TESTIMONIALS = [
   },
   {
     id: "test-2",
-    name: "Eleanor Sterling",
+    name: "Joshua Akorede",
     role: "Homeowner",
     rating: 5,
     comment: "A tree root completely blocked our sewer line right before a family gathering. OsaPlumbing arrived in 35 minutes, did a video scan, explained everything on a monitor, and cleared it using high-pressure water jetting. No mess, absolute professionals!",
@@ -156,8 +156,8 @@ export const TESTIMONIALS = [
   },
   {
     id: "test-3",
-    name: "David Cho",
-    role: "Owner, K-Bites Bistro",
+    name: "Munirat Kadiri",
+    role: "Restaurant owner",
     rating: 5,
     comment: "As a restaurant owner, a kitchen shutdown is financial ruin. OsaPlumbing handles our quarterly grease interceptor services and emergency line descaling overnight. Reliable, compliant, and extraordinarily professional.",
     avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&auto=format&fit=crop",
@@ -202,7 +202,7 @@ export const PRICING_TIERS = [
   {
     id: "price-1",
     name: "SafeGuard Home Care",
-    price: "$29",
+    price: "--",
     unit: "mo",
     description: "Ideal for homeowners seeking complete peace of mind with preventative maintenance and priority emergency dispatch.",
     features: [
@@ -218,7 +218,7 @@ export const PRICING_TIERS = [
   {
     id: "price-2",
     name: "Standard Diagnostic & Clean",
-    price: "$149",
+    price: "--",
     unit: "service",
     description: "Perfect for single repairs, sewer diagnostics, clogged drains, or general plumbing health assessments.",
     features: [
@@ -234,7 +234,7 @@ export const PRICING_TIERS = [
   {
     id: "price-3",
     name: "Elite Commercial Elite",
-    price: "$499",
+    price: "--",
     unit: "mo",
     description: "Designed for commercial offices, multi-family units, and restaurants requiring absolute uptime and compliance.",
     features: [

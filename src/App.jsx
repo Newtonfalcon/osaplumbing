@@ -28,7 +28,7 @@ export default function App() {
   const [formData, setFormData] = useState({ name: "", phone: "", notes: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [bookingConfirmed, setBookingConfirmed] = useState(false);
-  const [confirmationDetails, setConfirmationDetails] = useState({ id: "", queueNum: 0 });
+  const [confirmationDetails, setConfirmationDetails] = useState({ name: "", service: "" });
 
   const handleOpenBooking = (preselectedService) => {
     if (preselectedService) {
@@ -40,44 +40,35 @@ export default function App() {
     setIsBookingOpen(true);
   };
 
+  const WHATSAPP_NUMBER = "2349066172210"; // no leading + or spaces for wa.me links
+
   const handleBookingSubmit = (e) => {
     e.preventDefault();
     if (!formData.name || !formData.phone) return;
 
     setIsSubmitting(true);
 
-    // Simulate dispatch mapping delay
+    // Build a WhatsApp message from whatever the user entered in the form
+    const messageLines = [
+      "Hello OsaPlumbing, I'd like to book a service:",
+      "",
+      `*Name:* ${formData.name}`,
+      `*Phone:* ${formData.phone}`,
+      `*Service:* ${selectedService || "General Diagnostics"}`,
+      `*Notes:* ${formData.notes || "N/A"}`
+    ];
+    const waMessage = encodeURIComponent(messageLines.join("\n"));
+    const waLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${waMessage}`;
+
+    // Small delay purely for UI feedback (spinner), then hand off to WhatsApp
     setTimeout(() => {
-      const bID = "book_" + Math.random().toString(36).substr(2, 9);
-      const qNum = Math.floor(Math.random() * 80) + 201;
+      window.open(waLink, "_blank", "noopener,noreferrer");
 
-      // Add to local storage inquiries so it syncs with contact records
-      const saved = localStorage.getItem("osaplumbing_inquiries") || "[]";
-      try {
-        const arr = JSON.parse(saved);
-        arr.unshift({
-          id: bID,
-          name: formData.name,
-          phone: formData.phone,
-          service: selectedService,
-          notes: formData.notes || "Urgent direct schedule via online booking portal.",
-          timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
-          queueNum: qNum,
-          status: "pending"
-        });
-        localStorage.setItem("osaplumbing_inquiries", JSON.stringify(arr));
-        
-        // Trigger a window custom event to notify Contact history tracker to refresh list
-        window.dispatchEvent(new Event("storage"));
-      } catch (err) {
-        console.error(err);
-      }
-
-      setConfirmationDetails({ id: bID, queueNum: qNum });
+      setConfirmationDetails({ name: formData.name, service: selectedService });
       setIsSubmitting(false);
       setBookingConfirmed(true);
       setFormData({ name: "", phone: "", notes: "" });
-    }, 1500);
+    }, 800);
   };
 
   return (
@@ -91,7 +82,7 @@ export default function App() {
         <Hero onOpenBooking={() => handleOpenBooking()} />
 
         {/* Trusted By / Partners */}
-        <TrustedBy />
+       {/*<TrustedBy /> */}
 
         {/* Services Showcase */}
         <Services onOpenBooking={(srv) => handleOpenBooking(srv)} />
@@ -169,7 +160,7 @@ export default function App() {
                       Schedule Master Technician
                     </h3>
                     <p className="text-xs text-slate-500 mt-1">
-                      Fill out your plumbing symptoms and lock in your priority diagnostic arrival slot. No upfront deposits.
+                      Fill out your plumbing symptoms and lock in your priority diagnostic arrival slot. Our dispatch team will reach out via WhatsApp to confirm your booking and provide next steps.
                     </p>
                   </div>
 
@@ -193,7 +184,7 @@ export default function App() {
                         id="modal-book-phone"
                         type="tel"
                         required
-                        placeholder="e.g. (310) 555-0199"
+                        placeholder="e.g. +234 900 000 0000"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         className="w-full bg-slate-50 border border-slate-200 text-xs sm:text-sm rounded-xl p-3 focus:outline-none focus:border-brand-blue text-slate-900 font-mono font-medium"
@@ -235,10 +226,13 @@ export default function App() {
                       ) : (
                         <>
                           <Calendar className="w-4 h-4" />
-                          <span>Submit Reservation request</span>
+                          <span>Send via WhatsApp</span>
                         </>
                       )}
                     </button>
+                    <p className="text-[10px] text-slate-400 text-center leading-relaxed">
+                      This opens WhatsApp with your details prefilled — just hit send there to reach our dispatch team directly.
+                    </p>
                   </form>
                 </div>
               ) : (
@@ -249,25 +243,25 @@ export default function App() {
                   
                   <div className="space-y-2">
                     <h3 className="font-display text-2xl font-black text-slate-900">
-                      Priority Dispatch Confirmed!
+                      Sent to WhatsApp!
                     </h3>
                     <p className="text-xs text-slate-500 max-w-sm mx-auto leading-relaxed">
-                      We have logged your intake file in our active service queue. An engineer has been allocated to review your notes.
+                      A prefilled message with your details opened in WhatsApp. Just hit send there and our dispatch team will reply directly.
                     </p>
                   </div>
 
                   <div className="bg-slate-50 p-4 rounded-2xl border border-slate-150 inline-block w-full max-w-sm font-mono text-xs text-left space-y-1.5">
                     <p className="flex justify-between">
-                      <span className="text-slate-400">Intake Record ID:</span>
-                      <strong className="text-slate-900 font-bold">{confirmationDetails.id}</strong>
+                      <span className="text-slate-400">Name:</span>
+                      <strong className="text-slate-900 font-bold">{confirmationDetails.name}</strong>
                     </p>
                     <p className="flex justify-between">
-                      <span className="text-slate-400">Queue Position:</span>
-                      <strong className="text-brand-blue font-extrabold">#{confirmationDetails.queueNum}</strong>
+                      <span className="text-slate-400">Service:</span>
+                      <strong className="text-brand-blue font-extrabold">{confirmationDetails.service || "General Diagnostics"}</strong>
                     </p>
                     <p className="flex justify-between">
-                      <span className="text-slate-400">Response ETA:</span>
-                      <strong className="text-emerald-600 font-bold">Under 3 Minutes</strong>
+                      <span className="text-slate-400">Sent to:</span>
+                      <strong className="text-emerald-600 font-bold">+234 906 617 2210</strong>
                     </p>
                   </div>
 
@@ -281,11 +275,13 @@ export default function App() {
                     </button>
                     <a
                       id="modal-confirmed-call"
-                      href="tel:+18005550199"
+                      href={`https://wa.me/${WHATSAPP_NUMBER}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="w-full sm:w-1/2 py-3 bg-brand-blue hover:bg-brand-blue-hover text-white text-xs font-bold font-mono uppercase tracking-wider rounded-full transition-all flex items-center justify-center gap-1.5"
                     >
                       <Phone className="w-3.5 h-3.5 fill-white animate-pulse" />
-                      <span>Dial (800) 555-0199</span>
+                      <span>Open WhatsApp</span>
                     </a>
                   </div>
                 </div>

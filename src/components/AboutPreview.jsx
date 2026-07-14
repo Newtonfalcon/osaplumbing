@@ -1,12 +1,13 @@
 import { Check, ShieldCheck, HelpCircle } from "lucide-react";
-import aboutImage from "../assets/images/about_plumber_1783608157373.jpg";
+//import aboutImage from "../assets/images/about_plumber_1783608157373.jpg";
+import aboutImage from "../assets/certificate.jpeg"
 
 export default function AboutPreview() {
   const credentials = [
-    { title: "Licensed Master Plumbing Contractors", desc: "No. 40813-A issued under strict testing standards." },
-    { title: "OSHA-30 Certified Techs", desc: "Ensuring zero-hazard workplace setups." },
-    { title: "IAPMO Universal Clean Water", desc: "Advanced commercial purification certification." },
-    { title: "EPA Lead-Safe Certified", desc: "Safe handling of heritage architecture materials." }
+    { title: "Licensed Master Plumbing Contractors", desc: "No. 9166249 issued as a private company limited by shares." },
+    { title: "Verified local contractor", desc: "Trusted by our community." },
+    //{ title: "IAPMO Universal Clean Water", desc: "Advanced commercial purification certification." },
+    { title: "Material handling", desc: "Safe handling of heritage architecture materials." }
   ];
 
   return (
@@ -31,7 +32,7 @@ export default function AboutPreview() {
                 <p className="text-sm font-semibold text-slate-900 mt-1 italic">
                   "We believe in clean pipes, quiet systems, and spotless work areas. Plumbing is a high discipline."
                 </p>
-                <p className="text-[11px] text-slate-500 font-mono mt-2">— Oscar Ramirez, Founder & Master Plumber</p>
+                <p className="text-[11px] text-slate-500 font-mono mt-2">— Osasere, Founder & Master Plumber</p>
               </div>
             </div>
 
@@ -74,20 +75,7 @@ export default function AboutPreview() {
             {/* Quick trust strip */}
             <div className="pt-4 flex items-center gap-4 border-t border-slate-150 text-xs text-slate-500">
               <div className="flex -space-x-2">
-                {[...Array(4)].map((_, i) => (
-                  <img
-                    key={i}
-                    src={`https://images.unsplash.com/photo-${[
-                      "1534528741775-53994a69daeb",
-                      "1506794778202-cad84cf45f1d",
-                      "1494790108377-be9c29b29330",
-                      "1500648767791-00dcc994a43e"
-                    ][i]}?q=80&w=100&auto=format&fit=crop`}
-                    alt="vetted team"
-                    className="w-7 h-7 rounded-full object-cover border-2 border-white"
-                    referrerPolicy="no-referrer"
-                  />
-                ))}
+                
               </div>
               <p>Vetted by over <strong>350+ local luxury property owners</strong> and commercial site general managers.</p>
             </div>

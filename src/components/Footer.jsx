@@ -1,5 +1,5 @@
 import React from "react";
-import { Wrench, Phone, Mail, Award, CheckCircle, Shield } from "lucide-react";
+import { Wrench, Phone, Mail, MapPin, Award, CheckCircle, Shield } from "lucide-react";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -43,8 +43,8 @@ export default function Footer() {
             </p>
             {/* Regulatory licenses list */}
             <div className="pt-2 text-[10px] text-neutral-500 font-mono space-y-1">
-              <p>CA Lic. Master Plumber No. 40813-A</p>
-              <p>Certified backflow assemblies technician No. BF-8902</p>
+              <p>CAC lic. NO 9166249</p>
+              <p>Certified Plumbing Company</p>
             </div>
           </div>
 
@@ -72,11 +72,15 @@ export default function Footer() {
             <div className="space-y-3 text-xs text-neutral-400">
               <p className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-red-500 shrink-0" />
-                <span className="font-mono text-white">(800) 555-0199</span>
+                <span className="font-mono text-white">+234 906 617 2210</span>
               </p>
               <p className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-brand-blue shrink-0" />
-                <span className="font-mono">support@osaplumbing.com</span>
+                <span className="font-mono">osaplumbing@gmail.com</span>
+              </p>
+              <p className="flex items-center gap-2">
+                <MapPin className="w-4 h-4 text-brand-orange shrink-0" />
+                <span className="font-mono">Number 14 Osasere Street, Off Upper Sakponba Road, Benin City</span>
               </p>
               <p className="text-[10px] text-neutral-500">
                 Live dispatch monitoring active. Sub-hour response window on emergencies.
@@ -92,15 +96,15 @@ export default function Footer() {
             <div className="grid grid-cols-2 gap-3">
               <div className="p-2 bg-neutral-900 border border-neutral-800 rounded-lg flex items-center gap-2">
                 <Shield className="w-4 h-4 text-brand-orange shrink-0" />
-                <span className="text-[9px] font-bold font-mono tracking-tight text-neutral-300">OSHA COMPLIANT</span>
+                <span className="text-[9px] font-bold font-mono tracking-tight text-neutral-300">certified plumbing company</span>
               </div>
               <div className="p-2 bg-neutral-900 border border-neutral-800 rounded-lg flex items-center gap-2">
                 <Award className="w-4 h-4 text-emerald-500 shrink-0" />
-                <span className="text-[9px] font-bold font-mono tracking-tight text-neutral-300">EPA LEAD-SAFE</span>
+                <span className="text-[9px] font-bold font-mono tracking-tight text-neutral-300">CAC certificate</span>
               </div>
               <div className="p-2 bg-neutral-900 border border-neutral-800 rounded-lg flex items-center gap-2">
                 <CheckCircle className="w-4 h-4 text-brand-blue shrink-0" />
-                <span className="text-[9px] font-bold font-mono tracking-tight text-neutral-300">IAPMO CERTIFIED</span>
+                <span className="text-[9px] font-bold font-mono tracking-tight text-neutral-300">Licensed & Insured</span>
               </div>
               <div className="p-2 bg-neutral-900 border border-neutral-800 rounded-lg flex items-center gap-2">
                 <Shield className="w-4 h-4 text-amber-500 shrink-0" />
@@ -119,7 +123,7 @@ export default function Footer() {
             <span>•</span>
             <a href="#" className="hover:text-brand-orange">Safety Warranties</a>
             <span>•</span>
-            <a href="#" className="hover:text-brand-orange">EPA Certifications</a>
+            <a href="#" className="hover:text-brand-orange">CAC Certifications</a>
           </div>
         </div>
 

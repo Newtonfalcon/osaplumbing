@@ -70,12 +70,7 @@ export default function Testimonials() {
               {/* User Bio */}
               <div className="flex items-center justify-between border-t border-slate-100 pt-6 flex-wrap gap-4">
                 <div className="flex items-center gap-4">
-                  <img
-                    src={activeTestimonial.avatar}
-                    alt={activeTestimonial.name}
-                    className="w-12 h-12 rounded-full object-cover border-2 border-brand-blue"
-                    referrerPolicy="no-referrer"
-                  />
+                  
                   <div>
                     <h4 className="font-display font-bold text-slate-900 flex items-center gap-1.5 leading-none">
                       <span>{activeTestimonial.name}</span>

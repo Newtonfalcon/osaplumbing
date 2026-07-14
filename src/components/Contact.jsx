@@ -29,8 +29,8 @@ export default function Contact({ onOpenBooking }) {
               <div>
                 <h4 className="text-sm font-bold text-slate-900 font-mono uppercase tracking-wider">Logistics Center</h4>
                 <p className="text-xs text-slate-500 mt-2 leading-relaxed">
-                  1240 Copper Ridge Blvd, Suite 400<br />
-                  Industrial Waterway Grid, CA 90425
+                  Number 14 Osasere Street<br />
+                  Off Upper Sakponba Road, Benin City
                 </p>
               </div>
             </div>
@@ -45,8 +45,8 @@ export default function Contact({ onOpenBooking }) {
               <div>
                 <h4 className="text-sm font-bold text-slate-900 font-mono uppercase tracking-wider">Telephone Hub</h4>
                 <p className="text-xs text-slate-500 mt-2 font-mono leading-relaxed">
-                  Toll-Free: (800) 555-0199<br />
-                  Local Office: (310) 555-0245
+                  Toll-Free: +234 906 617 2210<br />
+                  Local Office: +234 906 617 2210
                 </p>
               </div>
             </div>
@@ -61,8 +61,8 @@ export default function Contact({ onOpenBooking }) {
               <div>
                 <h4 className="text-sm font-bold text-slate-900 font-mono uppercase tracking-wider">Electronic Logistics</h4>
                 <p className="text-xs text-slate-500 mt-2 font-mono leading-relaxed">
-                  Estimates: diagnostics@osaplumbing.com<br />
-                  Licensing: info@osaplumbing.com
+                  Estimates: osaplumbing@gmail.com<br />
+                  Licensing: osaplumbing@gmail.com
                 </p>
               </div>
             </div>
