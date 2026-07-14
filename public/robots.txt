@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+Disallow: /node_modules/
+Disallow: /dist/
+Disallow: /src/
+Disallow: /.git/
+
+# Sitemaps
+Sitemap: https://osaplumbing.com/sitemap.xml
+
+# Crawl-delay to be respectful
+Crawl-delay: 1
